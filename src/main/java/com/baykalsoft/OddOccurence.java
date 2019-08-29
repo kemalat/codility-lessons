@@ -3,12 +3,14 @@ package com.baykalsoft;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.Optional;
 
 public class OddOccurence {
 
 
   public static void main(String[] args) {
-    int[] a = {9, 3, 9, 3, 9, 7, 9};
+    int[] a = {9, 3, 9, 3,9, 7, 9};
     List<Integer> list = new ArrayList<>();
 
     for (int e : a) {
@@ -33,14 +35,13 @@ public class OddOccurence {
       System.out.println(i);
       i = 0;
     }
-
     System.out.println(elementFound);
+    Optional<Integer> result = elementFound.values().stream().filter(obj -> obj % 2 != 0).findFirst();
+    System.out.println(result.get());
+    Optional<Entry<Integer, Integer>> found = elementFound.entrySet().stream().filter(obj -> obj.getValue() == result.get())
+        .findFirst();
+    System.out.println(found.get().getKey());
 
-
-//    System.out.println(list);
-//    System.out.println(list.indexOf(9));
-//    System.out.println(list.);
-//    System.out.println(list.lastIndexOf(9));
 
 
   }

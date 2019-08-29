@@ -11,13 +11,14 @@ public class MissingInteger {
 
   public static void main(String[] args) {
 
-        int [] a = {6,2,4,2,3,9};
-//        int [] a = {-3,3,1};
-//    int[] a = {-3, -2, -1};
-    Arrays.sort(a);
-//    bubbleSort(a);
+
+  }
+
+  int solution(int[] A){
+
+    Arrays.sort(A);
     List<Integer> list = new ArrayList<>();
-    for (int e : a) {
+    for (int e : A) {
       list.add(Integer.valueOf(e));
     }
     System.out.println(list);
@@ -59,11 +60,10 @@ public class MissingInteger {
       }
     }
     System.out.println(smallest);
+    return smallest;
 
 
   }
-
-
 
 
 }
