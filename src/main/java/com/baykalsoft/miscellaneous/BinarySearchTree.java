@@ -1,4 +1,4 @@
-package com.baykalsoft;
+package com.baykalsoft.miscellaneous;
 
 public class BinarySearchTree {
 

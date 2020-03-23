@@ -1,4 +1,4 @@
-package com.baykalsoft;
+package com.baykalsoft.miscellaneous;
 
 import java.util.Arrays;
 import java.util.List;

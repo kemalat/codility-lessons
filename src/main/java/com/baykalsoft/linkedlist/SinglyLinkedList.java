@@ -1,4 +1,4 @@
-package com.baykalsoft;
+package com.baykalsoft.linkedlist;
 
 class Node {
   public int data;

@@ -1,4 +1,4 @@
-package com.baykalsoft;
+package com.baykalsoft.miscellaneous;
 
 import static org.junit.Assert.assertEquals;
 
@@ -21,7 +21,7 @@ public class BinaryGap {
 
     @Parameters
     public static Collection<Object[]> data() {
-        Object[][] data = new Object[][] { { 1977, 5 } };
+        Object[][] data = new Object[][] { { 10, 5 } };
         return Arrays.asList(data);
     }
 
@@ -31,10 +31,28 @@ public class BinaryGap {
         assertEquals("Result", result, tester.solution(a));
     }
 
+    public static void main(String[] args) {
+        new BinaryGap().solution(10);
+    }
+
+
+
+
+    String toBinary(int x) {
+        char[] buff = new char[32];
+
+        for (int i = 31; i >= 0 ; i--) {
+            int mask = 1 << i;
+            buff[31 - i] = (x & mask) != 0 ? '1' : '0';
+        }
+
+        return new String(buff);
+    }
+
     public int solution (int num)  {
 
 
-        String bin  = Integer.toBinaryString(num);
+        String bin  = toBinary(num);
 
         int pos0 = 0, max = 0;
         while(bin.indexOf('0',pos0) > 0) {
@@ -53,5 +71,6 @@ public class BinaryGap {
         return  max;
 
     }
+
 
 }
