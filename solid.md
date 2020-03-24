@@ -72,7 +72,7 @@ public class AreaCalculator
 {
     public double area(Shape shape)
     {
-        return area;
+        return shape.area();
     }
 }
 
