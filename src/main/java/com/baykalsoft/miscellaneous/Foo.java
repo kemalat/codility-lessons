@@ -15,11 +15,9 @@ package com.baykalsoft.miscellaneous;
 public class Foo extends Thread {
 
   public Foo() {
-
     stopped = false;
     suspended = false;
     lock = new Object();
-
   }
 
   private volatile boolean suspended, stopped = false;
@@ -67,12 +65,8 @@ public class Foo extends Thread {
         }
       }
       System.out.println("Resuming Thread...");
-
-
     }
     System.out.println("Thread stopped");
-
-
   }
 
   public void suspendThread(){
