@@ -1,6 +1,12 @@
 package com.baykalsoft.stack;
 
+// Imagine a stack of paper.
+// The last piece put into the stack is on the top, so it is the first one to come out.
+// This is LIFO. Adding a piece of paper is called "pushing", and removing a piece of paper is called "popping".
+
+
 public class StackArrayImpl<E> {
+
   private E[] arr;
   private int CAP;
   private int top = -1;
@@ -13,7 +19,7 @@ public class StackArrayImpl<E> {
   }
 
   public E pop() {
-    if(this.size == 0){
+    if (this.size == 0) {
       return null;
     }
 
@@ -26,8 +32,9 @@ public class StackArrayImpl<E> {
   }
 
   public boolean push(E e) {
-    if (isFull())
+    if (isFull()) {
       return false;
+    }
 
     this.size++;
     this.arr[++top] = e;
@@ -36,22 +43,23 @@ public class StackArrayImpl<E> {
   }
 
   public boolean isFull() {
-    if (this.size == this.CAP)
+    if (this.size == this.CAP) {
       return true;
+    }
     return false;
   }
 
   public String toString() {
-    if(this.size==0){
+    if (this.size == 0) {
       return null;
     }
 
     StringBuilder sb = new StringBuilder();
-    for(int i=0; i<this.size; i++){
+    for (int i = 0; i < this.size; i++) {
       sb.append(this.arr[i] + ", ");
     }
 
-    sb.setLength(sb.length()-2);
+    sb.setLength(sb.length() - 2);
     return sb.toString();
   }
 
