@@ -1,8 +1,0 @@
-*.swp
-*.DS_Store
-*.lock
-conf
-target
-log
-*.iml
-.idea
