@@ -1,2 +1,2 @@
-# sw-architecting
-Optimization, uses cases, data structures and algorithms related topics.
+# Several topics about DSA, Java Concepts and best practices
+
