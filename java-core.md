@@ -1,3 +1,6 @@
+### equals() vs hashCode() 
+equals() and hashCode() are different methods and hashCode method should not be used to check if two object references are same. Reason: hashCode just returns int value for an Object, even two different objects can have same hashCode integer. The value returned by hashCode() is the object's hash code, which is the object's memory address in hexadecimal. equals() checks if the two object references are same. If two objects are equal then their hashCode must be the same, but the reverse is not true.
+
 ### sleep() vs wait() 
 sleep() is a method which is used to pause the process for few seconds or the time we want to. But in case of wait() method, thread goes in waiting state and it won’t come back automatically until we call the notify() or notifyAll(). 
 
@@ -7,37 +10,49 @@ sleep() is a method which is used to pause the process for few seconds or the ti
 - sleep() – until at least time expire or call `interrupt()`.
 
 ### fail-fast vs fail-safe iterators
-
 - Fail-fast iterators operate directly on the collection itself. During iteration, fail-fast iterators fail as soon as they realize that the collection has been modified they will throw a `ConcurrentModificationException`. Some examples include `ArrayList, HashSet, and HashMap`
 
 - Fail-safe iterates operate on a cloned copy of the collection and therefore do not throw an exception if the collection is modified during iteration. Examples would include iterators returned by `ConcurrentHashMap or CopyOnWriteArrayList`
 
 ### ArrayList vs LinkedList vs Vector
-
 - `ArrayList` and `Vector` are implemented as a resizable array. Vector is similar with ArrayList, but it is synchronized. When an element is inserted into (or removed from) the middle of the list, the elements that follow must all be shifted accordingly.If a thread-safe implementation is not needed, would be better to use ArrayList rather than Vector.
 se ArrayList rather than Vector.
 
 - `LinkedList` is implemented using a doubly linked list. Inserting or removing an element only requires updating the links that immediately precede and follow the element being inserted or removed.
 
-### Checked vs Unchecked Exceptions
+### HashMap vs Hashtable
+Both Hashtable and HashMap are data-structure based upon hashing and implementation of Map interface, the main difference between them is that HashMap is not thread-safe but Hashtable is thread-safe.HashMap allows null values with one null key but as key and value whereas Hashtable doesn't allow nulls
 
+### Checked vs Unchecked Exceptions
 Java forces you to handle Checked Exceptions, once you start compiling your program. If you dont catch FileNotFoundException, you will get compile time error with message – Unhandled exception type FileNotFoundException. 
 
 Java also provides UncheckedExceptions, the occurrences of which are not checked by the compiler. They will come into life/occur into your program, once any buggy code is executed.Unchecked Exceptions are subclasses of RuntimeException. Example of unchecked exceptions are : NullPointerException,ArrayIndexOutOfBoundsException, IllegalArgumentException,NumberFormatException
 
 ### Threadlocal
-
 ThreadLocal instance can store different values for each thread independently. Each thread that accesses the get() or set() method of a ThreadLocal instance is accessing its own, independently initialized copy of the variable. Sample use case could be generating unique identifiers locally to each thread. A thread’s id might be assigned the first time when Thread invokes ThreadId.get() and remains unchanged on subsequent calls. Another use case is when you have some object that is not thread-safe, but you want to avoid synchronizing access to that object. Instead, give each thread its own instance of the object.
 
-### Static Class
+### How to make a variable shared in a synchronised block in Java?
+Static variables might be shared between synchronised blocks. Static means shared across all the instances of that Class in a JVM. Shared resources are not thread-safe.Hence Static variables are not thread safe.So, if multiple threads tries to access a static variable, it may result in inconsistency.
 
+### Collections Vs Streams
+Collections are mainly used to store and group the data.Ex : List, Set, Ma
+Streams are mainly used to perform operations on data.	Ex : filtering, mapping, matching
+You can add or remove elements from collections.
+You can’t add. modify or remove elements from streams.Stream consumes a source, performs operations on it and returns a result
+Collections have to be iterated externally.
+Streams are internally iterated.
+Collections can be traversed multiple times.
+Streams are traversable only once.
+Collections are eagerly constructed.
+Streams are lazily constructed.
+
+### Static Class
 Java does not allow making a top-level class static as option 
 - Declaring class as final as it prevents extension of it
 - Making the constructor private as it prevents instantiation
 - Making all the members and functions of the class static. Since the class cannot be instantiated no instance methods can be called or instance fields accessed.
 
 ### Lambda expression and use cases
-
 - Java 8 provide support for lambda expressions only with functional interfaces. 
 - Any Interface with single abstract method is called Functional Interface.
 - Easy distribution of processing of collection over multiple threads.
