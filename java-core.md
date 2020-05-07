@@ -1,5 +1,5 @@
 ### equals() vs hashCode() 
-equals() and hashCode() are different methods and hashCode method should not be used to check if two object references are same. Reason: hashCode just returns int value for an Object, even two different objects can have same hashCode integer. The value returned by hashCode() is the object's hash code, which is the object's memory address in hexadecimal. equals() checks if the two object references are same. If two objects are equal then their hashCode must be the same, but the reverse is not true.
+equals() and hashCode() are different methods and hashCode method should not be used to check if two object references are same. hashCode just returns int value for an object, even two different objects can have same hashCode integer. The value returned by hashCode() is the object's hash code, which is the object's memory address in hexadecimal. equals() checks if the two object references are same. If two objects are equal then their hashCode must be the same, but the reverse is not true.
 
 ### sleep() vs wait() 
 sleep() is a method which is used to pause the process for few seconds or the time we want to. But in case of wait() method, thread goes in waiting state and it won’t come back automatically until we call the notify() or notifyAll(). 
@@ -20,6 +20,9 @@ se ArrayList rather than Vector.
 
 - `LinkedList` is implemented using a doubly linked list. Inserting or removing an element only requires updating the links that immediately precede and follow the element being inserted or removed.
 
+### ArrayDeque vs LinkedList
+ArrayDeque is more efficient than the LinkedList for add and remove operation at both ends and LinkedList implementation is efficient for removing the current element during the iteration. The LinkedList implementation consumes more memory than the ArrayDeque.
+
 ### HashMap vs Hashtable
 Both Hashtable and HashMap are data-structure based upon hashing and implementation of Map interface, the main difference between them is that HashMap is not thread-safe but Hashtable is thread-safe.HashMap allows null values with one null key but as key and value whereas Hashtable doesn't allow nulls
 
@@ -35,16 +38,19 @@ ThreadLocal instance can store different values for each thread independently. E
 Static variables might be shared between synchronised blocks. Static means shared across all the instances of that Class in a JVM. Shared resources are not thread-safe.Hence Static variables are not thread safe.So, if multiple threads tries to access a static variable, it may result in inconsistency.
 
 ### Collections Vs Streams
-Collections are mainly used to store and group the data.Ex : List, Set, Ma
-Streams are mainly used to perform operations on data.	Ex : filtering, mapping, matching
-You can add or remove elements from collections.
+Collections are mainly used to store and group the data.Ex : List, Set, Map  
+Streams are mainly used to perform operations on data.	Ex : filtering, mapping, matching  
+You can add or remove elements from collections.  
 You can’t add. modify or remove elements from streams.Stream consumes a source, performs operations on it and returns a result
-Collections have to be iterated externally.
-Streams are internally iterated.
-Collections can be traversed multiple times.
-Streams are traversable only once.
-Collections are eagerly constructed.
-Streams are lazily constructed.
+Collections have to be iterated externally.  
+Streams are internally iterated.  
+Collections can be traversed multiple times.  
+Streams are traversable only once.  
+Collections are eagerly constructed.  
+Streams are lazily constructed.  
+
+### Immutable Object
+Class fields are defined as final immutable data type. The value of the class field can only be set when the object is instantiated, and by having only a getter (getValue) the object's state cannot be changed after instantiation. 
 
 ### Static Class
 Java does not allow making a top-level class static as option 
