@@ -1,3 +1,12 @@
+### Single quotes vs Double quotes
+Single quotes for literal chars, double quotes for literal Strings
+
+`System.out.println('j'+'a'+'v'+'a');`
+
+This statement prints total decimal value after summing of each asci character decimal value. (e.g.  106+97+118+97)
+
+
+
 ### equals() vs hashCode() 
 equals() and hashCode() are different methods and hashCode method should not be used to check if two object references are same. hashCode just returns int value for an object, even two different objects can have same hashCode integer. The value returned by hashCode() is the object's hash code, which is the object's memory address in hexadecimal. equals() checks if the two object references are same. If two objects are equal then their hashCode must be the same, but the reverse is not true.
 
