@@ -1,3 +1,6 @@
+### Sorting algorithm used Java's Collections.sort(List<E>) method
+Java 8's Collections.sort(List<E>) uses `Iterative merge sort` algorithm, it requires fewer than n log(n) comparisons when the input array is partially sorted (adaptive) and this algorithm is guaranteed to be stable in nature.
+
 ### Single quotes vs Double quotes
 Single quotes for literal chars, double quotes for literal Strings
 
@@ -77,8 +80,6 @@ Java does not allow making a top-level class static as option
 Static binding uses Type(Class in Java) information for binding while Dynamic binding uses Object to resolve binding
 Dynamic Binding example : 
 
-### What is Bean ? 
-The objects that form the backbone of Spring application and that are managed by the Spring IoC container are called beans. Inversion of Control is a process in which an object defines its dependencies without creating them. This object delegates the job of constructing such dependencies to an IoC container.
 
 ```java
 public class Animal {
@@ -171,4 +172,8 @@ class MyThread implements Runnable
 - Database Problems : Check On persistence configuration (lazy vs. eager loading), caching, and database connection pool configuration.
 - Memory Problems: Check garbage collection configuration and memory leaks.
 - Concurrency Problems: Check thread deadlocks, thread gridlocks, and thread pool configuration issues.
+
+### What is Bean ? 
+The objects that form the backbone of Spring application and that are managed by the Spring IoC container are called beans. Inversion of Control is a process in which an object defines its dependencies without creating them. This object delegates the job of constructing such dependencies to an IoC container.
+
 
