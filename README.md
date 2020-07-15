@@ -1,2 +1,3 @@
-# Several topics about DSA, Java Concepts and best practices
+# 
+Clean coding, SOLID and Java Core related
 
