@@ -1,3 +1,6 @@
+### Java char range
+ It is used to declare the character-type variables and methods. It is capable of holding the unsigned 16-bit Unicode characters.The range of a variable of type char is from 0 to 2^16-1 or 0 to 65535.
+ 
 ### Sorting algorithm used Java's Collections.sort(List<E>) method
 Java 8's Collections.sort(List<E>) uses `Iterative merge sort` algorithm, it requires fewer than n log(n) comparisons when the input array is partially sorted (adaptive) and this algorithm is guaranteed to be stable in nature.
 
@@ -8,7 +11,8 @@ Single quotes for literal chars, double quotes for literal Strings
 
 This statement prints total decimal value after summing of each asci character decimal value. (e.g.  106+97+118+97)
 
-
+###  Anonymous inner class
+It can extend exactly one class or implement exactly one interface.
 
 ### equals() vs hashCode() 
 equals() and hashCode() are different methods and hashCode method should not be used to check if two object references are same. hashCode just returns int value for an object, even two different objects can have same hashCode integer. The value returned by hashCode() is the object's hash code, which is the object's memory address in hexadecimal. equals() checks if the two object references are same. If two objects are equal then their hashCode must be the same, but the reverse is not true.
@@ -28,15 +32,20 @@ sleep() is a method which is used to pause the process for few seconds or the ti
 
 ### ArrayList vs LinkedList vs Vector
 - `ArrayList` and `Vector` are implemented as a resizable array. Vector is similar with ArrayList, but it is synchronized. When an element is inserted into (or removed from) the middle of the list, the elements that follow must all be shifted accordingly.If a thread-safe implementation is not needed, would be better to use ArrayList rather than Vector.
-se ArrayList rather than Vector.
 
-- `LinkedList` is implemented using a doubly linked list. Inserting or removing an element only requires updating the links that immediately precede and follow the element being inserted or removed.
-
-### ArrayDeque vs LinkedList
+- `LinkedList` is implemented using a doubly linked list. Inserting or removing an element only requires updating the links that immediately precede and follow the element being inserted or removed. Linked is preferred when add and remove operations are more frequent than get operations
+ 
+ ### ArrayDeque vs LinkedList
 ArrayDeque is more efficient than the LinkedList for add and remove operation at both ends and LinkedList implementation is efficient for removing the current element during the iteration. The LinkedList implementation consumes more memory than the ArrayDeque.
 
 ### HashMap vs Hashtable
 Both Hashtable and HashMap are data-structure based upon hashing and implementation of Map interface, the main difference between them is that HashMap is not thread-safe but Hashtable is thread-safe.HashMap allows null values with one null key but as key and value whereas Hashtable doesn't allow nulls
+
+### LinkedHashMap vs HashMap
+Main difference between HashMap and LinkedHashMap is that LinkedHashMap maintains insertion order of keys, order in which keys are inserted in to LinkedHashMap. On the other hand HashMap doesn't maintain any order or keys or values.
+
+### Comparable vs Comparator 
+Comparator interface sort collection using two objects provided to it(`compare(Object o1, Object O2)`), whereas comparable interface compares" this" refers to the one objects provided to it(`compareTo(Object a )`). If sorting of objects needs to be based on natural order then use Comparable whereas if you sorting needs to be done on attributes of different objects, then use Comparator in Java.
 
 ### Checked vs Unchecked Exceptions
 Java forces you to handle Checked Exceptions, once you start compiling your program. If you dont catch FileNotFoundException, you will get compile time error with message – Unhandled exception type FileNotFoundException. 
