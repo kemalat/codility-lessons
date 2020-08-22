@@ -185,4 +185,11 @@ class MyThread implements Runnable
 ### What is Bean ? 
 The objects that form the backbone of Spring application and that are managed by the Spring IoC container are called beans. Inversion of Control is a process in which an object defines its dependencies without creating them. This object delegates the job of constructing such dependencies to an IoC container.
 
+### Inversion of Control vs Dependency Injection
+IoC (Inversion of Control) :- It’s a generic term and implemented in several ways (events, delegates etc).(IoC) means that objects do not create other objects on which they rely to do their work. Instead, they get the objects that they need from an outside source (for example, an xml configuration file).
+
+DI (Dependency Injection) :- DI is a sub-type of IoC and is implemented by constructor injection, setter injection or Interface injection.
+
+
+
 
