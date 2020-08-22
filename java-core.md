@@ -190,6 +190,11 @@ IoC (Inversion of Control) :- It’s a generic term and implemented in several w
 
 DI (Dependency Injection) :- DI is a sub-type of IoC and is implemented by constructor injection, setter injection or Interface injection.
 
+### HashSet vs TreeSet
+HashSet and TreeSet both implement same interface i.e  java.util.Set interface and they possess the quality of Set interface means duplicate elements are not allowed. Both HashSet and TreeSet are used for to store unique elements, but HashSet doesn't care about any order and TreeSet keeps a thing in order. Ordering or sorting on TreeSet can be customized by using Comparator interface, by default TreeSet uses elements natural order for sorting, which is defined by compareTo() method of java.lang.Comparable interface.
+
+### ArrayList vs CopyOnWriteArrayList
+ArrayList is not thread-safe whereas CopyOnWriteArrayList is thread-safe. While Iterating ArrayList object by one thread if other thread try to do modification then we will get Runt-time ConcurrentModificationException. Where as We won’t get any Exception in the case of CopyOnWriteArrayList.Iterator of ArrayList can perform remove operation while iteration. But Iterator of CopyOnWriteArrayList can't perform remove operation while iteration, otherwise it will throw run-time exception UnsupportedOperationException.When we are using any of the modify methods – such as add() or remove() – the whole content of the CopyOnWriteArrayList is copied into the new internal copy. When we're calling the iterator() method on the CopyOnWriteArrayList, we get back an Iterator backed up by the immutable snapshot of the content of the CopyOnWriteArrayList.
 
 
 
