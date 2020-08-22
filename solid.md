@@ -87,8 +87,93 @@ All subclasses must, therefore, operate in the same manner as their base classes
  
 Confirming design to Liskov Substitution Principle could be Bus and Car classes derived from Vehichle base class which having getSpeed() & getCubicCapacity() methods. This is exactly what the Liskov Substitution Principle also states – subtype objects can replace super type objects without affecting the functionality inherent in the super type.
 
+```java
+class SomeClass {
+  
+  void aMethod(SuperClass superClassReference) {
+    doSomething(superClassReference);
+  }
+  
+  // definition of doSomething() omitted
+}
+```
+This should work as expected for every possible subclass object of SuperClass that is passed to it. If substituting a superclass object with a subclass object changes the program behavior in unexpected ways, the LSP is violated.
+
+
 ### Interface Segregation Principle
 
 The interface segregation principle (ISP) states that no client should be forced to depend on methods it does not use. In our interface we need to define only related methods. Having AthleteInterface with methods swim() and jump() is not good idea becase the class that would implement this interface has to swim and jump at the same time. 
 
 ### Dependency Inversion Principle
+Below design is violating the DIP, The `Project` class is a high-level module, and it depends on low-level modules such as `BackEndDeveloper` and `FrontEndDeveloper`. We are actually violating the first part of the dependency inversion principle.
+
+```java
+public class BackEndDeveloper {
+    public void writeJava() {
+    }
+}
+```
+
+```java
+public class FrontEndDeveloper {
+    public void writeJavascript() {
+    }
+}
+```
+
+```java
+public class Project {
+    private BackEndDeveloper backEndDeveloper = new BackEndDeveloper();
+    private FrontEndDeveloper frontEndDeveloper = new FrontEndDeveloper();
+    public void implement() {
+        backEndDeveloper.writeJava();
+        frontEndDeveloper.writeJavascript();
+    }
+}
+```
+Rectifying the design and remove dependency to the low level modules for `Project` class
+
+```java
+public interface Developer {
+    void develop();
+}
+
+```
+
+```java
+
+public class BackEndDeveloper implements Developer {
+    @Override
+    public void develop() {
+        writeJava();
+    }
+    private void writeJava() {
+    }
+}
+
+```
+
+```java
+
+public class FrontEndDeveloper implements Developer {
+    @Override
+    public void develop() {
+        writeJavascript();
+    }
+    public void writeJavascript() {
+    }
+}
+
+```
+
+```java
+
+public class Project {
+    private List<Developer> developers;
+    public Project(List<Developer> developers) {
+        this.developers = developers;
+    }
+    public void implement() {
+        developers.forEach(d->d.develop());
+    }
+}
