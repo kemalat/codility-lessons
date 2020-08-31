@@ -84,8 +84,6 @@ List<Integer> b = Arrays.asList(4, 5);
 List<Integer> c = Arrays.asList(6, 7, 8);
 
 List<List<Integer>> listOfListofInts = Arrays.asList(a, b, c);
-List<Integer> listofInts = listOfListofInts.stream()
-										.flatMap(list -> list.stream())
-										.collect(Collectors.toList());
+List<Integer> listofInts = listOfListofInts.stream().flatMap(list -> list.stream()).collect(Collectors.toList());
 ```
 
