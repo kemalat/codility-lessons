@@ -38,7 +38,8 @@ public class test {
 }
 ```
 ### How do threads communicate with each other?
-The monitor methods (wait(), notify(), notifyAll()) of java.lang.Object class is the primary means of communicating between threads.
+They communicate through shared objects. The monitor methods (wait(), notify(), notifyAll()) of java.lang.Object class is the primary means of communicating between threads.
+BlockingQueue using Producer-Consumer pattern is the easiest way to pass an object from thread to another.
 
 ### Race Condition and how to avoid?
 A race condition occurs when two or more threads can access shared data and they try to change it at the same time. The part of the program which accesses the shared resource is known as the critical section. So, to avoid a race condition, we need to synchronize access to the critical section. ReentrantLock can be used to avoid race condition.
@@ -86,4 +87,11 @@ List<Integer> c = Arrays.asList(6, 7, 8);
 List<List<Integer>> listOfListofInts = Arrays.asList(a, b, c);
 List<Integer> listofInts = listOfListofInts.stream().flatMap(list -> list.stream()).collect(Collectors.toList());
 ```
+
+### WeakReference, SoftReference
+
+Object wrapped with WeakReference will be eligible for garbage collection if this object has neither strong nor soft references pointing to it. The object can be reached only by traversing a weak reference. Garbage Collector clears a weak reference, so the referent is no longer accessible. Then the reference is placed in a reference queue (if any associated exists) where we can obtain it from. Soft reference acts as a cache, it may continue to be reachable even if the referent itself is not. As a matter of fact, a soft reference is eligible for collection if and only if:
+
+- The referent is not strongly reachable
+- The soft reference is not being accessed recently
 
